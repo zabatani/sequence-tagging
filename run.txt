@@ -1,0 +1,11 @@
+python ExtractFeatures.py ../data/ass1-tagger-train features_file
+python ConvertFeatures.py features_file features_vecs_file feature_map_file
+python TrainSolver.py features_vecs_file model_file
+python GreedyMaxEntTag.py ../data/ass1-tagger-test-input model_file feature_map_file greedy_out
+python MEMMTag.py ../data/ass1-tagger-test-input model_file feature_map_file viterbi_out
+
+python ExtractFeatures.py ../data/ner/train features_file
+python ConvertFeatures.py features_file features_vecs_file feature_map_file
+python TrainSolver.py features_vecs_file model_file
+python GreedyMaxEntTag.py ../data/ner/dev.blind model_file feature_map_file greedy_out
+python MEMMTag.py ../data/ner/dev.blind model_file feature_map_file viterbi_out
